@@ -1,0 +1,98 @@
+body {
+    font-family: arial;
+    background-color:gold;
+    color: black;
+    line-height: 1.6;
+}
+
+header {
+    background: lightblue;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    font-family:arial;
+}
+
+img {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-decoration:underline; 
+    background-color:pink;
+}
+
+
+.rose-image {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.rose {
+  display: none;
+}
+
+
+.button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: red;
+}
+
+
+.rose:checked + .button + .rose-image {
+  display: block;
+}
+
+
+.image {
+  max-width: 100%;
+  height: auto;
+  padding:1em 1em 1em 1em;
+  margin:1em 1em 1em 1em;
+  width:50%;
+
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+.highlight {
+    font-weight: bold;
+    color:red;
+}
+    
+
+img.filtered-image {
+    animation: sepiaFilter 5s forwards;
+}
+
+@keyframes sepiaFilter {
+    from {
+        filter: sepia(0%);
+    }
+    
+    to {
+        filter: sepia(100%);
+    }
+}
+
+img.blurred{
+     filter: blur(4px);
+}
