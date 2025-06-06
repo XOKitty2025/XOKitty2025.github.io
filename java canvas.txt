@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bouncing Ball Animation</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    canvas {
+      border: 2px solid #333;
+      display: block;
+      margin: 0 auto;
+      background-color: #f0f8ff;
+    }
+    label {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bouncing Ball Animation</h1>
+  <canvas id="gameCanvas" width="500" height="300"></canvas>
+
+  <div style="margin-top: 20px;">
+    <label for="colorPicker">Ball Color:</label>
+    <input type="color" id="colorPicker" value="#ff0000" />
+
+    <label for="speedRange">Speed:</label>
+    <input type="range" id="speedRange" min="1" max="10" value="4" />
+    <p><em>Use arrow keys to move the ball manually</em></p>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let ball = {
+      x: 250,
+      y: 150,
+      radius: 20,
+      dx: 4,
+      dy: 3,
+      color: "#ff0000"
+    };
+
+    const colorPicker = document.getElementById("colorPicker");
+    const speedRange = document.getElementById("speedRange");
+
+    colorPicker.addEventListener("input", () => {
+      ball.color = colorPicker.value;
+    });
+
+    speedRange.addEventListener("input", () => {
+      const speed = Number(speedRange.value);
+      // Keep direction same, just change speed magnitude
+      ball.dx = speed * (ball.dx < 0 ? -1 : 1);
+      ball.dy = speed * (ball.dy < 0 ? -1 : 1);
+    });
+
+    window.addEventListener("keydown", (e) => {
+      const step = 10;
+      switch (e.key) {
+        case "ArrowLeft":
+          ball.x = Math.max(ball.radius, ball.x - step);
+          break;
+        case "ArrowRight":
+          ball.x = Math.min(canvas.width - ball.radius, ball.x + step);
+          break;
+        case "ArrowUp":
+          ball.y = Math.max(ball.radius, ball.y - step);
+          break;
+        case "ArrowDown":
+          ball.y = Math.min(canvas.height - ball.radius, ball.y + step);
+          break;
+      }
+    });
+
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = ball.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function update() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+        ball.dx = -ball.dx;
+      }
+
+      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+        ball.dy = -ball.dy;
+      }
+
+      drawBall();
+
+      requestAnimationFrame(update);
+    }
+
+    update();
+  </script>
+</body>
+</html>
