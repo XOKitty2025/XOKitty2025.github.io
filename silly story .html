@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Alien Encounter Generator</title>
+
+    <style>
+      body {
+        font-family: helvetica, sans-serif;
+        width: 400px;
+        height: auto;
+        padding: 20px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      div {
+        padding-bottom: 20px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        width: 150px;
+      }
+
+      p {
+        background: #ccffcc;
+        color: #003300;
+        padding: 10px;
+        visibility: hidden;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <label for="customname">Enter your name:</label>
+      <input id="customname" type="text" />
+    </div>
+    <div>
+      <label for="us">US</label>
+      <input id="us" type="radio" name="unit" value="us" checked />
+      <label for="uk">UK</label>
+      <input id="uk" type="radio" name="unit" value="uk" />
+    </div>
+    <div>
+      <button class="randomize">Generate Alien Encounter</button>
+    </div>
+
+    <p class="story">
+	</p>
+
+    <script>
+      const customName = document.getElementById("customname");
+      const randomize = document.querySelector(".randomize");
+      const story = document.querySelector(".story");
+      const us = document.getElementById("us");
+      const uk = document.getElementById("uk");
+
+      function randomValueFromArray(array) {
+        return array[Math.floor(Math.random() * array.length)];
+      }
+
+      const storyTemplate =
+        "One evening, :name: saw :alien: land their :ship: in :place:. They :reaction: and left behind a :souvenir:. It was :temp: and :alien: weighed :weight:.";
+
+      const alienNames = ["Zorpax", "Glimbo", "Q'tar", "Xeenor"];
+      const spaceships = ["crystal saucer", "wormhole cruiser", "invisible hoverpod", "chrome donut"];
+      const places = ["the backyard", "Times Square", "Stonehenge", "a cornfield"];
+      const reactions = ["screamed and ran", "took a selfie", "fainted", "asked for a ride"];
+      const souvenirs = ["glowing rock", "alien plush toy", "laser pen", "mysterious cube"];
+
+      randomize.addEventListener("click", generateStory);
+
+      function generateStory() {
+        let newStory = storyTemplate;
+
+        const name = customName.value !== "" ? customName.value : "Alex";
+        const alien = randomValueFromArray(alienNames);
+        const ship = randomValueFromArray(spaceships);
+        const place = randomValueFromArray(places);
+        const reaction = randomValueFromArray(reactions);
+        const souvenir = randomValueFromArray(souvenirs);
+
+        let tempC = -20;
+        let weightKg = 120;
+
+        if (us.checked) {
+          const tempF = Math.round((tempC * 9) / 5 + 32) + " Fahrenheit";
+          const weightLb = Math.round(weightKg * 2.20462) + " pounds";
+          newStory = newStory.replace(":temp:", tempF).replace(":weight:", weightLb);
+        } else {
+          newStory = newStory.replace(":temp:", tempC + " Celsius").replace(":weight:", weightKg + " kg");
+        }
+
+        newStory = newStory
+          .replaceAll(":name:", name)
+          .replaceAll(":alien:", alien)
+          .replace(":ship:", ship)
+          .replace(":place:", place)
+          .replace(":reaction:", reaction)
+          .replace(":souvenir:", souvenir);
+
+        story.textContent = newStory;
+        story.style.visibility = "visible";
+      }
+    </script>
+  </body>
+</html>
