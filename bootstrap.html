@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Portfolio - Home</title>
+
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+   
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <style>
+      .hero {
+        background-color: #e3f2fd;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      footer {
+        margin-top: 50px;
+        background-color: #f8f9fa;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .carousel img {
+        max-height: 300px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">MyPortfolio</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bio.html">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1 class="display-5 fw-bold">Hi, I'm a Student Developer</h1>
+            <p class="lead">
+              I build small apps, explore coding challenges, and love learning
+              new tech. This is my personal site to show what I’ve done.
+            </p>
+       
+            <div class="btn-group mt-3">
+              <a class="btn btn-primary" href="projects.html"
+                >View My Projects</a
+              >
+              <a class="btn btn-outline-secondary" href="bio.html"
+                >More About Me</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div
+            id="portfolioCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://via.placeholder.com/800x300?text=Project+1"
+                  class="d-block w-100"
+                  alt="Project 1"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://via.placeholder.com/800x300?text=Project+2"
+                  class="d-block w-100"
+                  alt="Project 2"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://via.placeholder.com/800x300?text=Project+3"
+                  class="d-block w-100"
+                  alt="Project 3"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#portfolioCarousel"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#portfolioCarousel"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 MyPortfolio. Built with ❤️ using Bootstrap.</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
+</html>
