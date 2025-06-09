@@ -1,17 +1,87 @@
-<html>
-  <head>
-    
-  </head>
-  <body  style= "background-color: Pink">
-    <h1>Welcome to my web page! </h1>
-    <br>
-     <h2> These are my projects!</h2> 
-    <a href= "story/index.html"> Tell a story!</a>
-    <br>
-    <a href="silly_story.html"> Silly Story project!</a>
-    <br>
-    <a href= "bootstrap.html">Bootstrap Project!</a>
-    <br>
-    <a href= "java_canvas.html">Final Project!</a>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffafbd, #ffc3a0); /* nice pink gradient */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 2em 1em;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      margin: 0.2em 0;
+      font-size: 2.5em;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-weight: normal;
+    }
+
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2em;
+      margin: 3em auto;
+      max-width: 400px;
+    }
+
+    .project-links a {
+      display: block;
+      background-color: #fff;
+      color: #333;
+      text-decoration: none;
+      padding: 1em 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .project-links a: hover {
+      background-color: #ffe0e9;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 3em;
+      padding: 1em;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to My Web Page!</h1>
+    <h2>Here are some of my favorite projects 🚀</h2>
+  </header>
+
+  <main>
+    <div class="project-links">
+      <a href="story/index.html">📖 Tell a Story</a>
+      <a href="silly_story.html">😜 Silly Story Project</a>
+      <a href="bootstrap.html">🎨 Bootstrap Project</a>
+      <a href="java_canvas.html">💻 Final Canvas Project</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 My GitHub Projects
+  </footer>
+
+</body>
 </html>
+
